@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { AmountSelect } from './components/AmountSelect';
+import { ContentBlock } from './components/ContentBlock';
+import { Price } from './components/Price';
 
 function App() {
+  const [amount, setAmount] = useState(1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContentBlock title="App">
+      <ContentBlock title="AmountSelect">
+        <AmountSelect amount={amount} setAmount={setAmount} />
+      </ContentBlock>
+      <ContentBlock title="Price">
+        <Price amount={amount} />
+      </ContentBlock>
+    </ContentBlock>
   );
 }
 
